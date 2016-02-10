@@ -9,7 +9,6 @@ app.set('views', __dirname + '/views');
 app.set('view engine','ejs');
 
 app.use('/static',express.static(__dirname + '/static'));
-app.use('/lib',express.static(__dirname + '/../bin'));
 
 app.get('/', function(req, res) {
     res.render("index", {});    

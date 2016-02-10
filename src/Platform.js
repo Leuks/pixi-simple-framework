@@ -1,3 +1,4 @@
+'use strict'
 /**
  *Create a Platform 
  *
