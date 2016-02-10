@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <script src="../static/js/pixi.js"></script>
+  <script src="../static/js/PixiSimpleFramework.js"></script>
+  
+  <style>
+ body {
+     margin: auto;
+    background-color: #000000;
+    display : center;
+ }
+ </style>
+ 
+</head>
+<body id="test">
+
+<br>
+<script>
+ 
+	var plateforme = new Platform("0xFea5de",true,true,1000 ,1347);
+    plateforme.setZoom(0.5);
+    plateforme.setBackground("../static/img/carteRobot.png");
+    plateforme.addTexture("robot","../static/img/robot.png");
+    plateforme.addSprite("robot","robot");
+    plateforme.addSprite("robot2","robot");
+    plateforme.addSprite("robot3","robot");
+    plateforme.configureSprite("robot3",0.33,0.5,100,300,1,1);
+    plateforme.configureSprite("robot",0.33,0.5,100,100,1,1);
+    plateforme.configureSprite("robot2",0.33,0.5,100,500,1,1);
+    plateforme.start();
+    
+    document.body.appendChild(plateforme.renderer.view);
+    
+    
+    var scenario1 = new Scenario("test1");
+    var scenario2 = new Scenario("test2");
+    var scenario3 = new Scenario("test3");
+    scenario1.addAction(new Action("robot", "GOTO",150,100) );
+    scenario1.addAction(new Action("robot", "GOTO",100,100));
+    
+    
+    scenario1.addAction(new Action("robot3", "GOTO",150,300) );
+    scenario1.addAction(new Action("robot3", "GOTO",100,300));
+    
+    scenario2.addAction(new Action("robot2", "GOTO",150,500) );
+    scenario2.addAction(new Action("robot2", "GOTO",100,500));
+    
+    scenario3.addAction(new Action("robot", "GOTO",500,500) );
+    scenario3.addAction(new Action("robot", "GOTO",300,300));
+
+    
+var simulation = new Simulation(plateforme);
+    simulation.addScenario(scenario1);
+    simulation.addScenario(scenario2);
+    simulation.addScenario(scenario3);
+    
+   simulation.start();
+
+    </script>
+</body>
+</html>

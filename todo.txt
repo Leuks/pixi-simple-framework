@@ -1,0 +1,3 @@
+enable change speed deplacement
+        test in missed variables for init ex Platform color-> white 
+enable click on stage
